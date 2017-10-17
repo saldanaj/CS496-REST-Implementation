@@ -1,0 +1,830 @@
+{
+	"variables": [],
+	"info": {
+		"name": "JoaquinSaldana_REST_Implementation",
+		"_postman_id": "387a6e2d-dacd-17b8-fdd8-d8ca423db3d8",
+		"description": "This is the implementation of the REST API that's hosted on Google Cloud and can be accessed via the following link: \n\nhttps://rest-implementation-183107.appspot.com/\n\n",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1. Create a boat 1 successfully",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody); ",
+							"postman.setGlobalVariable(\"boat1-link\", data['self']); ",
+							"postman.setGlobalVariable(\"boat1-id\", data['boat_id']); ",
+							"tests['Boat length'] = responseBody.has(5); ",
+							"tests['Boat name'] = responseBody.has(\"Boat 1\");",
+							"tests['Boat type'] = responseBody.has(\"Flat Boat\");",
+							"tests[\"Successfully Created Boat (201)\"] = responseCode.code === 201; "
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://rest-implementation-183107.appspot.com/boats",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\"name\": \"Boat 1\", \"type\": \"Flat Boat\", \"length\": 5}"
+				},
+				"description": "Created a boat successfully and testing if the properties are in the boat and checking the response code is correct "
+			},
+			"response": []
+		},
+		{
+			"name": "1. Create a boat 2 successfully - different data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody); ",
+							"postman.setGlobalVariable(\"boat2-link\", data['self']); ",
+							"postman.setGlobalVariable(\"boat2-id\", data['boat_id']); ",
+							"tests['Boat length'] = responseBody.has(10); ",
+							"tests['Boat name'] = responseBody.has(\"Boat 2\");",
+							"tests['Boat type'] = responseBody.has(\"Power Boat\");",
+							"tests[\"Successfully Created Boat (201)\"] = responseCode.code === 201; "
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://rest-implementation-183107.appspot.com/boats",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\"name\": \"Boat 2\", \"type\": \"Power Boat\", \"length\": 10}"
+				},
+				"description": "Created a boat successfully and testing if the properties are in the boat and checking the response code is correct "
+			},
+			"response": []
+		},
+		{
+			"name": "1. Create a boat 3 successfully - different data copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody); ",
+							"postman.setGlobalVariable(\"boat3-link\", data['self']); ",
+							"postman.setGlobalVariable(\"boat3-id\", data['boat_id']); ",
+							"tests['Boat length'] = responseBody.has(15); ",
+							"tests['Boat name'] = responseBody.has(\"Boat 3\");",
+							"tests['Boat type'] = responseBody.has(\"Speed Boat\");",
+							"tests[\"Successfully Created Boat (201)\"] = responseCode.code === 201; "
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://rest-implementation-183107.appspot.com/boats",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\"name\": \"Boat 3\", \"type\": \"Speed Boat\", \"length\": 15}"
+				},
+				"description": "Created a boat successfully and testing if the properties are in the boat and checking the response code is correct "
+			},
+			"response": []
+		},
+		{
+			"name": "2. Create a slip 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody); ",
+							"postman.setGlobalVariable(\"slip1-link\", data['self']); ",
+							"postman.setGlobalVariable(\"slip1-id\", data['slip_id']); ",
+							"tests['Slip Number'] = responseBody.has(1); ",
+							"tests[\"Successfully Created Boat (201)\"] = responseCode.code === 201; ",
+							"",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://rest-implementation-183107.appspot.com/slips",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"slip_number\": 1}"
+				},
+				"description": "Created a slip successfully and testing if the properties are in the boat and checking the response code is correct "
+			},
+			"response": []
+		},
+		{
+			"name": "2. Create a slip 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody); ",
+							"postman.setGlobalVariable(\"slip2-link\", data['self']); ",
+							"postman.setGlobalVariable(\"slip2-id\", data['slip_id']); ",
+							"tests['Slip Number'] = responseBody.has(2); ",
+							"tests[\"Successfully Created Boat (201)\"] = responseCode.code === 201; ",
+							"",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://rest-implementation-183107.appspot.com/slips",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"slip_number\": 2}"
+				},
+				"description": "Created a slip successfully and testing if the properties are in the boat and checking the response code is correct "
+			},
+			"response": []
+		},
+		{
+			"name": "2. Create a slip 3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody); ",
+							"postman.setGlobalVariable(\"slip3-link\", data['self']); ",
+							"postman.setGlobalVariable(\"slip3-id\", data['slip_id']); ",
+							"tests['Slip Number'] = responseBody.has(3); ",
+							"tests[\"Successfully Created Boat (201)\"] = responseCode.code === 201; ",
+							"",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://rest-implementation-183107.appspot.com/slips",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"slip_number\": 3}"
+				},
+				"description": "Created a slip successfully and testing if the properties are in the boat and checking the response code is correct "
+			},
+			"response": []
+		},
+		{
+			"name": "3. Create slip that already exists",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Attempting to create a boat w/ same slip number fails\"] = responseCode.code === 505; ",
+							"tests[\"Silps Exists Message\"] = responseBody.has(\"Slip number already exists\");",
+							"",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://rest-implementation-183107.appspot.com/slips",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"slip_number\": 3}"
+				},
+				"description": "Attempt to create a slip with a slip number that already exists"
+			},
+			"response": []
+		},
+		{
+			"name": "5. Get list of all boats ",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"function greaterThanOne(num)",
+							"{",
+							"    if (num > 1)",
+							"    {",
+							"        return true; ",
+							"    }",
+							"    ",
+							"    return false; ",
+							"}",
+							"",
+							"var responseLength = JSON.parse(responseBody).length; ",
+							"tests[\"GET request returned more than one boat\"] = greaterThanOne(responseLength);",
+							"tests[\"Successfully Retrieved List of Boats (201)\"] = responseCode.code === 201;",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://rest-implementation-183107.appspot.com/boats",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"slip_number\": 5}"
+				},
+				"description": "Get the entire list of boats in the database "
+			},
+			"response": []
+		},
+		{
+			"name": "6. Get a single boat ",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Boat ID is in response body\"] = responseBody.has(postman.getGlobalVariable(\"boat1-id\")); ",
+							"tests[\"Successfully Retrieved single boat (201)\"] = responseCode.code === 201;",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://rest-implementation-183107.appspot.com/{{boat1-link}}",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"slip_number\": 5}"
+				},
+				"description": "Retrieve one specific boat "
+			},
+			"response": []
+		},
+		{
+			"name": "7. Get list of all slips",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"function greaterThanOne(num)",
+							"{",
+							"    if (num > 1)",
+							"    {",
+							"        return true; ",
+							"    }",
+							"    ",
+							"    return false; ",
+							"}",
+							"",
+							"var responseLength = JSON.parse(responseBody).length; ",
+							"tests[\"GET request returned more than one slip\"] = greaterThanOne(responseLength);",
+							"tests[\"Successfully Retrieved List of Slips (201)\"] = responseCode.code === 200;",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://rest-implementation-183107.appspot.com/slips",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"slip_number\": 5}"
+				},
+				"description": "Get the entire list of slips in the database"
+			},
+			"response": []
+		},
+		{
+			"name": "8. Get a single slip ",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Slip ID is in response body\"] = responseBody.has(postman.getGlobalVariable(\"slip1-id\")); ",
+							"tests[\"Successfully Retrieved single slip (201)\"] = responseCode.code === 200;",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://rest-implementation-183107.appspot.com/{{slip1-link}}",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"slip_number\": 5}"
+				},
+				"description": "Retrieve one specific slip"
+			},
+			"response": []
+		},
+		{
+			"name": "9. Modify/Patch a boat",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Boat Type Was Changed\"] = responseBody.has(\"Small Boat\"); ",
+							"tests[\"Boat ID in response is same as passed in URL\"] = responseBody.has(postman.getGlobalVariable(\"boat1-id\")); ",
+							"tests[\"Successfully Retrieved single slip (201)\"] = responseCode.code === 201;",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://rest-implementation-183107.appspot.com/{{boat1-link}}",
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"type\": \"Small Boat\"}"
+				},
+				"description": "make a particular modification to a boat"
+			},
+			"response": []
+		},
+		{
+			"name": "10. Replace/PUT a boat ",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Boat Type Was Changed\"] = responseBody.has(\"Mini Boat\");",
+							"tests[\"Boat Length Was Changed\"] = responseBody.has(20);",
+							"tests[\"Boat Name Was Changed\"] = responseBody.has(\"Boat 11\");",
+							"tests[\"Boat ID in response is same as passed in URL\"] = responseBody.has(postman.getGlobalVariable(\"boat1-id\")); ",
+							"tests[\"Successfully Retrieved single slip (201)\"] = responseCode.code === 201;",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://rest-implementation-183107.appspot.com/{{boat1-link}}",
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"type\": \"Mini Boat\", \"name\": \"Boat 11\", \"length\": 20}"
+				},
+				"description": "completely modify a boat that is already assigned a key"
+			},
+			"response": []
+		},
+		{
+			"name": "11. Modify/Patch a slip number ",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Slip Number Was Changed\"] = responseBody.has(6); ",
+							"tests[\"Slip ID in response is same as passed in URL\"] = responseBody.has(postman.getGlobalVariable(\"slip1-id\")); ",
+							"tests[\"Successfully modified single slip (201)\"] = responseCode.code === 201;",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://rest-implementation-183107.appspot.com/{{slip1-link}}",
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"slip_number\": 6}"
+				},
+				"description": "make a particular modification to a slip that already exists "
+			},
+			"response": []
+		},
+		{
+			"name": "12. Attempt to Patch/Modify a Slip with a number that already exsits ",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Silps Exists Message\"] = responseBody.has(\"Slip number already exists\")",
+							"tests[\"Successfully Failed to Modify Slip With Slip Number Already Present)\"] = responseCode.code === 505;",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://rest-implementation-183107.appspot.com/{{slip1-link}}",
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"slip_number\": 3}"
+				},
+				"description": "make a particular modification to a slip with a slip number that already exists "
+			},
+			"response": []
+		},
+		{
+			"name": "13. Put a boat 1 to slip 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests['The Arrival Date Was Updated'] = responseBody.has(\"01/01/2017\"); ",
+							"tests['Current Boat Shows Boat ID'] = responseBody.has(postman.getGlobalVariable(\"boat1-id\")); ",
+							"tests[\"Successfully Created Boat (201)\"] = responseCode.code === 201; "
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://rest-implementation-183107.appspot.com{{slip1-link}}/dock/{{boat1-id}}",
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"arrival_date\": \"01/01/2017\"} "
+				},
+				"description": "Testing that a boat and slip are updated correctly when docked"
+			},
+			"response": []
+		},
+		{
+			"name": "13. Put a boat 2 to slip 2 ",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests['The Arrival Date Was Updated'] = responseBody.has(\"01/02/2017\"); ",
+							"tests['Current Boat Shows Boat ID'] = responseBody.has(postman.getGlobalVariable(\"boat2-id\")); ",
+							"tests[\"Successfully Created Boat (201)\"] = responseCode.code === 201; "
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://rest-implementation-183107.appspot.com{{slip2-link}}/dock/{{boat2-id}}",
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"arrival_date\": \"01/02/2017\"} "
+				},
+				"description": "Testing that a boat and slip are updated correctly when docked"
+			},
+			"response": []
+		},
+		{
+			"name": "13. Put a boat 3 to slip 3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests['The Arrival Date Was Updated'] = responseBody.has(\"01/03/2017\"); ",
+							"tests['Current Boat Shows Boat ID'] = responseBody.has(postman.getGlobalVariable(\"boat3-id\")); ",
+							"tests[\"Successfully Created Boat (201)\"] = responseCode.code === 201; "
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://rest-implementation-183107.appspot.com{{slip3-link}}/dock/{{boat3-id}}",
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"arrival_date\": \"01/03/2017\"} "
+				},
+				"description": "Testing that a boat and slip are updated correctly when docked"
+			},
+			"response": []
+		},
+		{
+			"name": "14. Put boat 1 to sea",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests['The Departure List Was Updated'] = responseBody.has(\"05/01/2017\"); ",
+							"tests['Current Boat Shows Boat ID'] = responseBody.has(postman.getGlobalVariable(\"boat1-id\")); ",
+							"tests[\"Successfully Set Boat to Sea (201)\"] = responseCode.code === 201; "
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://rest-implementation-183107.appspot.com/boats/{{boat1-id}}/atsea/{{slip1-id}}",
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"departure_date\": \"05/01/2017\"}"
+				},
+				"description": "Testing the boat is put to sea"
+			},
+			"response": []
+		},
+		{
+			"name": "15. Check if departure list updated after boat was set to sea ",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"",
+							"tests[\"Slip ID is in response body\"] = responseBody.has(postman.getGlobalVariable(\"slip1-id\")); ",
+							"tests[\"Successfully Retrieved single slip (201)\"] = responseCode.code === 200;",
+							"var data = JSON.parse(responseBody); ",
+							"tests['Slip Departure History Was Updated Because Its Not NULL'] = data['depart_history'] !== null; ",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://rest-implementation-183107.appspot.com/{{slip1-link}}",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"slip_number\": 5}"
+				},
+				"description": "Check departure list "
+			},
+			"response": []
+		},
+		{
+			"name": "16. Delete an unoccupied slip",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Successfully Deleted Slip 201)\"] = responseCode.code === 201;",
+							"tests[\"Silps successfully Deleted\"] = responseBody.has(\"Slip successfully Deleted\");"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://rest-implementation-183107.appspot.com/{{slip1-link}}",
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "Delete slip "
+			},
+			"response": []
+		},
+		{
+			"name": "16. Delete a boat ",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Successfully Deleted Boat 201)\"] = responseCode.code === 201;",
+							"tests[\"Boat successfully Deleted\"] = responseBody.has(\"Boat successfully Deleted\");"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://rest-implementation-183107.appspot.com/{{boat1-link}}",
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "Delete slip "
+			},
+			"response": []
+		},
+		{
+			"name": "17. Get Boat 2 to Log It's At Sea Value Before Forceful Delete of Slip ",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Successfully Retrieved Boat (201)\"] = responseCode.code === 201;",
+							"postman.setGlobalVariable(\"boat2-atSeaValue\", data['at_sea']); "
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://rest-implementation-183107.appspot.com/{{boat2-link}}",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "This is GET to log the boat's at sea value to show that it changes after the slip the boat is occupying is deleted"
+			},
+			"response": []
+		},
+		{
+			"name": "17. Delete Slip 2 Which Currently Holds Boat 2 ",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Successfully Deleted Slip 201)\"] = responseCode.code === 201;",
+							"tests[\"Silps successfully Deleted\"] = responseBody.has(\"Slip successfully Deleted\");"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://rest-implementation-183107.appspot.com/{{slip2-link}}",
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "Delete the slip even though it's currently occupied "
+			},
+			"response": []
+		},
+		{
+			"name": "17. Get Boat 2 At Sea Value To Confirm It Changed After Slip Was Deleted",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Successfully Retrieved Boat (201)\"] = responseCode.code === 201;",
+							"var data = JSON.parse(responseBody); ",
+							"tests[\"Boat 2 At Sea Value Is Now Set To True\"] = postman.getGlobalVariable(\"boat2-atSeaValue\") !== data['at_sea']; "
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://rest-implementation-183107.appspot.com/{{boat2-link}}",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "This is GET to log the boat's at sea value to show that it changes after the slip the boat is occupying is deleted"
+			},
+			"response": []
+		},
+		{
+			"name": "18. Get Slip 3 To Get Current Boat Value to Later Confirm It Changes When the Boat is Deleted ",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Successfully Retrieved Boat (200)\"] = responseCode.code === 200;",
+							"var data = JSON.parse(responseBody); ",
+							"// tests[\"Boat 2 At Sea Value Is Now Set To True\"] = postman.getGlobalVariable(\"boat2-atSeaValue\") !== data['at_sea']; "
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://rest-implementation-183107.appspot.com/{{slip3-link}}",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "18. Delete Boat 3 Forcefully",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Successfully Deleted Boat 201)\"] = responseCode.code === 201;",
+							"tests[\"Boat successfully Deleted\"] = responseBody.has(\"Boat successfully Deleted\");"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://rest-implementation-183107.appspot.com/{{boat3-link}}",
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "Delete boat 3 forcefully without putting it out to sea first "
+			},
+			"response": []
+		},
+		{
+			"name": "18. Check Slip Current Boat Value is now null ",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Successfully Retrieved Boat (200)\"] = responseCode.code === 200;",
+							"var data = JSON.parse(responseBody); ",
+							"tests[\"Slip 3 Current Boat Value is null\"] = data['current_boat'] === null; "
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://rest-implementation-183107.appspot.com/{{slip3-link}}",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

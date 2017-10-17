@@ -341,7 +341,6 @@ class SlipHandler(webapp2.RequestHandler):
 #             self.response.out.write('Slip was not found.  Invalid key')
 
 
-
 # This is the handler for the user to set the boat to sea and modifies the 
 # properties of the Boat and the Slip that include the arrival date, departure history, 
 # current boat, and more
